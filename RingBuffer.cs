@@ -45,10 +45,15 @@ namespace RingBuffer
         public bool Contains(T item) => innerList.Contains(item);
         public void CopyTo(T[] array, int arrayIndex) => innerList.CopyTo(array, arrayIndex);
         public IEnumerator<T> GetEnumerator() => innerList.GetEnumerator();
+        public IEnumerable<T> AsEnumerable() => innerList.AsEnumerable();
         public int IndexOf(T item) => innerList.IndexOf(item);
         public void Insert(int index, T item) => innerList.Insert(index, item);
         public bool Remove(T item) => innerList.Remove(item);
         public void RemoveAt(int index) => innerList.RemoveAt(index);
+        public void RemoveRange(int index, int count) => innerList.RemoveRange(index, count);
+        public List<T> GetRange(int index, int count) => innerList.GetRange(index, count);
+
+        public List<T> ToList() => innerList.ToList();
 
         IEnumerator IEnumerable.GetEnumerator() => innerList.GetEnumerator();
     }
